@@ -18,21 +18,21 @@ public class Checker extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String user = request.getParameter("user");
-        Set<Character> set = new TreeSet<>();
+        String user = request.getParameter("user");// user cos'è? in html name="user in user parametro associato"
+        Set<Character> set = new TreeSet<>();// noi ci siamo creati un treeSet vuoto
         if (user != null) {
             for (char c : user.toCharArray()) {
                 set.add(Character.toLowerCase(c));
             }
         }
-        request.setAttribute("set", set);
+        request.setAttribute("set", set);// ci metto dentro un attributo;
 
         RequestDispatcher rd = request.getRequestDispatcher("/s08/checker.jsp");
         rd.forward(request, response);
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)// passo il controllo al jsp;
             throws ServletException, IOException {
         doGet(request, response);
     }
