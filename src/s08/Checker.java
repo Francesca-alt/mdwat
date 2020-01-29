@@ -25,7 +25,7 @@ public class Checker extends HttpServlet {
                 set.add(Character.toLowerCase(c));
             }
         }
-        request.setAttribute("set", set);// ci metto dentro un attributo;
+        request.setAttribute("set", set);// ci metto dentro un attributo; collection set non ha duplicati.key value come sono memorizzati attributi in questo nome;
 
         RequestDispatcher rd = request.getRequestDispatcher("/s08/checker.jsp");
         rd.forward(request, response);
