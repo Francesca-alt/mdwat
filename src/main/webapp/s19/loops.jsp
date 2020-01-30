@@ -7,9 +7,9 @@
 <title>JSTL for each</title>
 </head>
 <body>
-    <p>Users</p>
+    <p>Users:</p>
     <c:forEach var="user" items="${users}">
-        <p>${user.name},${user.id}</p>
+        <p>${user.name}, ${user.id}</p>
     </c:forEach>
     <hr />
     <p>Values</p>

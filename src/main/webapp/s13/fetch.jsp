@@ -9,7 +9,7 @@
     <h1>Hello!</h1>
 
     <p>Document title: ${doc.title}</p>
-    <p>Document user name: ${doc.user.name}</p>
-    <p>Document title by request scope: ${requestScope.doc.title}</p>
+    <p>Document user name: ${doc.user.name}</p> <!-- nome dell'utente associato a user -->
+    <p>Document title by request scope: ${requestScope.doc.title}</p> <!-- oggetto chiamato in doc.title -->
 </body>
 </html>

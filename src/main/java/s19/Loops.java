@@ -20,8 +20,8 @@ public class Loops extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        User[] users = new User[] { new User("Alpha", 1), new User("Beta", 2), new User("Gamma", 3) };
-        request.setAttribute("users", users);
+        User[] users = new User[] { new User("Alpha", 1), new User("Beta", 2), new User("Gamma", 3) };// genera al momento user e li mette nell'array;
+        request.setAttribute("users", users);// users ha dentro un array di users che sono in riga 23;
 
         Double[] values = new Double[12]; // ...
         for (int i = 0; i < values.length; i++) {

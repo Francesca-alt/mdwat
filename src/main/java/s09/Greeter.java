@@ -19,23 +19,23 @@ public class Greeter extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession();// tomcat vede che c'è il cookie prepara la session a questa request;facciamo la get di un attributo che non sappiamo cosa c'è dentro, mi ritorna null;
         LocalTime start = (LocalTime) session.getAttribute("start");
 
         Duration duration;
         if (start == null) {
-            duration = Duration.ZERO;
-            session.setAttribute("start", LocalTime.now());
+            duration = Duration.ZERO; // se non si era mai collegato sarà 0;
+            session.setAttribute("start", LocalTime.now()); // mi collego per la prima volta;
         } else {
-            duration = Duration.between(start, LocalTime.now());
+            duration = Duration.between(start, LocalTime.now()); // duration il gap dalla prima volta e l'ultima acui ti sei collegato;
         }
 
-        if (request.getParameter("done") == null) {
-            request.setAttribute("duration", duration);
+        if (request.getParameter("done") == null) { // vedo se l'utente mi ha passato parametri;
+            request.setAttribute("duration", duration); // l'attributo duration lo metto in request;
             RequestDispatcher rd = request.getRequestDispatcher("/s09/greeter.jsp");
             rd.forward(request, response);
         } else {
-            session.invalidate();
+            session.invalidate(); // chiamo il metodo invalide, mi disconetto chiamo l'uscita da quella sessione;
 
             response.setContentType("text/html");
             response.setCharacterEncoding("utf-8");
